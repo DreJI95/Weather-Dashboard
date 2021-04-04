@@ -4,18 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Dashboard</title>
 </head>
-<body>
+<body class="flex-column min-100-vh">
     <header>
-        
+        <h1>Weather Dashboard</h1>
       </header>
     
     
-      <main>
-        
-    
+      <main class="flex-row flex-start justify-space-between">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm">
+                        <div>
+                            <label for="citySearchInput" class="form-label search-for-city">Search for a City:</label>
+                            <input type="input" class="form-control" id="city-search-form" placeholder="Enter a city here" aria-describedby="citySearch">
+                            <button type="button" class="btn btn-secondary search-city-button">Search</button>
+                        </div>
+                        <br><br>
+                        <!-- append history buttons -->
+                        <div class="row search-history">
+                            <u>History</u>
+
+                        </div>
+                </div>
+
+                <div class="col-sm">
+                        <div class="row card">
+                            <h3 class="current-city">Selected City current conditions</h2>
+                            <div id="current-day">Content for the current city</div>
+                        </div>
+                        
+                        <div class="row">
+                            <h4>5-Day Forecast:</h4>
+                            <div class="row day-forecast">
+                                <div class="col-sm card" id="day-plus-1">
+                                Day+1
+                                </div>
+                                <div class="col-sm card" id="day-plus-2">
+                                Day+2
+                                </div>
+                                <div class="col-sm card" id="day-plus-3">
+                                Day+3
+                                </div>
+                                <div class="col-sm card" id="day-plus-4">
+                                Day+4
+                                </div>
+                                <div class="col-sm card" id="day-plus-5">
+                                Day+5
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+
+        </div>
       </main>
       <script src="./assets/js/script.js"></script>
     </body>
