@@ -1,0 +1,10 @@
+node_modules
+package-lock.json
+.vscode
+.DS_Store
+desktop.ini
+./desktop.ini
+./assets/js/desktop.ini
+./assets/css/desktop.ini
+./assets/images/desktop.ini
+./assets/desktop.ini
