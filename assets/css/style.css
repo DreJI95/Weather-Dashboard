@@ -19,7 +19,7 @@ u
     font-weight: bold;
 }
 
-li
+ul li
 {
     list-style: none;
 }
@@ -28,4 +28,9 @@ li
 {
     background-color: rgb(78, 115, 133);
     color: white;
+}
+
+img
+{
+    size: small;
 }

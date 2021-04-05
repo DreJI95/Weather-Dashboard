@@ -1,4 +1,34 @@
+//pulls cities searched from local storage
+var loadWeatherHistory = function(){
+    var weatherArray = JSON.parse(localStorage.getItem("weatherStoredArray"));
+    if (!weatherArray) {
+        return 0;
+    }
+    else
+    {
+        for (var i = 0; i > weatherArray.length; i++) {
+            addToSearchHistory(weatherArray[i]);
+        }
+    }
+}
+loadWeatherHistory();
 
+//saves cities searched from local storage
+var saveWeatherHistory = function(city){
+
+    var weatherArray = JSON.parse(localStorage.getItem("weatherStoredArray"));
+
+    if(!weatherArray)
+    {
+        weatherArray = [city];
+    }
+    else
+    {
+        weatherArray.push(city);
+    }
+
+    localStorage.setItem("weatherStoredArray",JSON.stringify(weatherArray));
+}
 
 var addToSearchHistory = function (currentSelectedCity) {
     
@@ -10,14 +40,15 @@ var addToSearchHistory = function (currentSelectedCity) {
     var historyButton = $(".search-history").append("<li><button type=\"button\" id=\""+currentSelectedCity+"\"></button></li>");
     historyButton.find("#"+currentSelectedCity).addClass("btn btn-secondary search-city-button");
     historyButton.find("#"+currentSelectedCity).text(currentSelectedCity);
+    saveWeatherHistory(currentSelectedCity);
     }
 }
 
 $(".search-city-button").click( function()
 {
     event.preventDefault;
-
-    var city = $(".city-name-input").val().trim();
+    
+    var city = $(".city-name-input").val();
 
     var weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&APPID=ab5543a0004ddf7308f14dbe112934c4";
 
