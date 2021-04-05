@@ -63,7 +63,7 @@ $(".search-city-button").click( function()
                 $(".current-card").attr("hidden",false);
                 $(".forecast-card").attr("hidden",false);
 
-                var uvIndexApiUrl = "http://api.openweathermap.org/data/2.5/uvi?lat="+data.coord.lat+"&lon="+data.coord.lon+"&appid="+apiKey;
+                var uvIndexApiUrl = "https://api.openweathermap.org/data/2.5/uvi?lat="+data.coord.lat+"&lon="+data.coord.lon+"&appid="+apiKey;
             
                 fetch(uvIndexApiUrl).then(function(uvResponse)
                 {
