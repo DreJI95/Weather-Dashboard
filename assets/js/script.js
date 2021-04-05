@@ -34,6 +34,7 @@ var saveWeatherHistory = function(city){
     localStorage.setItem("weatherStoredArray",JSON.stringify(weatherArray));
 }
 
+//appends the searched cities to the page history as buttons
 var addToSearchHistory = function (currentSelectedCity) {
     
     if(document.getElementById(currentSelectedCity))
@@ -42,12 +43,13 @@ var addToSearchHistory = function (currentSelectedCity) {
     }
     else{
     var historyButton = $(".search-history").append("<li><button type=\"button\" id=\""+currentSelectedCity+"\"></button></li>");
-    historyButton.find("#"+currentSelectedCity).addClass("btn btn-secondary search-city-button");
+    historyButton.find("#"+currentSelectedCity).addClass("btn btn-secondary search-history-button");
     historyButton.find("#"+currentSelectedCity).text(currentSelectedCity);
     saveWeatherHistory(currentSelectedCity);
     }
 }
 
+//event listener for search button
 $(".search-city-button").click( function()
 {
     event.preventDefault;
@@ -94,6 +96,7 @@ $(".search-city-button").click( function()
       });
 });
 
+//calls the api to populate the 5 day forecast
 var showCurrentCityForecast = function (city)
 {
     var weatherApiUrl = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&cnt=5&APPID="+apiKey;
@@ -115,7 +118,7 @@ var showCurrentCityForecast = function (city)
 }
 
 
-
+//Displays current weather conditions by appending elements to page
 var showCurrentWeather = function(weatherInfo,uvIndexVal) {
 
     var weatherIconUrl = "https://openweathermap.org/img/wn/"+weatherInfo.weather[0].icon+"@2x.png"
@@ -126,6 +129,7 @@ var showCurrentWeather = function(weatherInfo,uvIndexVal) {
     $("#current-day").text("Temp: "+weatherInfo.main.temp+ "°C "+"Wind: "+weatherInfo.wind.speed+"MPH "+"Humidex: "+weatherInfo.main.humidity+"% "+"UV Index: "+uvIndexVal);
 };
 
+//Displays 5 day forecast weather conditions by appending elements to page
 var showForecastWeather = function(forecastInfo) {
 
    for (i=0; i < forecastInfo.list.length; i++){
@@ -145,3 +149,14 @@ var showForecastWeather = function(forecastInfo) {
 
    }
 }
+
+$(".search-history-button").click( function(event)
+{
+    event.preventDefault;
+
+    var city = $(event.target).text();
+
+    $(".city-name-input").val(city);
+
+    $(".search-city-button").trigger( "click" );
+});
