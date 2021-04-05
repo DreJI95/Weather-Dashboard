@@ -118,7 +118,7 @@ var showCurrentCityForecast = function (city)
 
 var showCurrentWeather = function(weatherInfo,uvIndexVal) {
 
-    var weatherIconUrl = "http://openweathermap.org/img/wn/"+weatherInfo.weather[0].icon+"@2x.png"
+    var weatherIconUrl = "https://openweathermap.org/img/wn/"+weatherInfo.weather[0].icon+"@2x.png"
 
     var today = dayjs().format('(DD/MM/YYYY)');
     $(".current-city").text(weatherInfo.name+" "+today+" ");
@@ -130,7 +130,7 @@ var showForecastWeather = function(forecastInfo) {
 
    for (i=0; i < forecastInfo.list.length; i++){
 
-    var weatherIconUrl = "http://openweathermap.org/img/wn/"+forecastInfo.list[i].weather[0].icon+"@2x.png"
+    var weatherIconUrl = "https://openweathermap.org/img/wn/"+forecastInfo.list[i].weather[0].icon+"@2x.png"
 
     var icon = ("<img src="+weatherIconUrl+" alt=\"weather icon\" class=weather-icon></img>")
 
