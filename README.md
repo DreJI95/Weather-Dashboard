@@ -25,6 +25,7 @@ This project lets a user see the weather conditions for cities using a Web API. 
 **References:** 
 Weather API: https://openweathermap.org/api/one-call-api
 Weather API Forecast: https://openweathermap.org/forecast5
+Weather API Icon: https://openweathermap.org/weather-conditions
 Weahter API UV index: https://openweathermap.org/api/uvi
 Bootstrap Forms: https://getbootstrap.com/docs/5.0/forms/overview/
 Bootstrap Grid: https://getbootstrap.com/docs/5.0/layout/grid/

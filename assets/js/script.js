@@ -25,6 +25,8 @@ $(".search-city-button").click( function()
     {
         if (response.ok) {
             response.json().then(function(data) {
+                $(".current-card").attr("hidden",false);
+                $(".forecast-card").attr("hidden",false);
               showCurrentWeather(data);
               addToSearchHistory(city);
               showCurrentCityForecast(city);
@@ -59,22 +61,34 @@ var showCurrentCityForecast = function (city)
       });
 }
 
+
+
 var showCurrentWeather = function(weatherInfo) {
-    console.log(weatherInfo);
+
+    var weatherIconUrl = "http://openweathermap.org/img/wn/"+weatherInfo.weather[0].icon+"@2x.png"
 
     var today = dayjs().format('(DD/MM/YYYY)');
-    $(".current-city").text(weatherInfo.name+" "+today+" "+weatherInfo.weather.icon);
-    $("#current-day").text(weatherInfo.main.temp+" C "+weatherInfo.wind.speed+"MPH "+weatherInfo.main.humidity+"% ");
-
-}
+    $(".current-city").text(weatherInfo.name+" "+today+" ");
+    $(".current-city").append("<img src="+weatherIconUrl+" alt=\"weather icon\" class=weather-icon></img>")
+    $("#current-day").text("Temp: "+weatherInfo.main.temp+" C "+"Wind: "+weatherInfo.wind.speed+"MPH "+"Humidex: "+weatherInfo.main.humidity+"% ");
+};
 
 var showForecastWeather = function(forecastInfo) {
-   console.log(forecastInfo);
 
    for (i=0; i < forecastInfo.list.length; i++){
 
+    var weatherIconUrl = "http://openweathermap.org/img/wn/"+forecastInfo.list[i].weather[0].icon+"@2x.png"
+
+    var icon = ("<img src="+weatherIconUrl+" alt=\"weather icon\" class=weather-icon></img>")
+
     var today = dayjs(i).format('(DD/MM/YYYY)');
-    $("#day-plus-"+(i+1).toString()).text(today+" "+forecastInfo.list[i].main.temp+" C "+forecastInfo.list[i].wind.speed+"MPH "+forecastInfo.list[i].main.humidity+"% ");
+
+    var weatherText = ("Temp: "+forecastInfo.list[i].main.temp+" C "+"Wind: "+forecastInfo.list[i].wind.speed+"MPH "+"Humidex: "+forecastInfo.list[i].main.humidity+"% ");
+
+    $("#day-plus-"+(i+1).toString()).text("");
+    $("#day-plus-"+(i+1).toString()).append("<h5>"+today+"</h5>");
+    $("#day-plus-"+(i+1).toString()).append(icon);
+    $("#day-plus-"+(i+1).toString()).append("<p>"+weatherText+"</p>");
 
    }
 }

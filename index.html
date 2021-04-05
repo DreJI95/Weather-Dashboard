@@ -29,27 +29,27 @@
                 </div>
 
                 <div class="col-sm">
-                        <div class="row card">
+                        <div class="row card current-card" hidden=true>
                             <h3 class="current-city">Selected City current conditions</h2>
                             <div id="current-day">Content for the current city</div>
                         </div>
                         
-                        <div class="row">
+                        <div class="row forecast-card" hidden=true>
                             <h4>5-Day Forecast:</h4>
                             <div class="row day-forecast">
-                                <div class="col-sm card" id="day-plus-1">
+                                <div class="col-sm card day-plus" id="day-plus-1">
                                 Day+1
                                 </div>
-                                <div class="col-sm card" id="day-plus-2">
+                                <div class="col-sm card day-plus" id="day-plus-2">
                                 Day+2
                                 </div>
-                                <div class="col-sm card" id="day-plus-3">
+                                <div class="col-sm card day-plus" id="day-plus-3">
                                 Day+3
                                 </div>
-                                <div class="col-sm card" id="day-plus-4">
+                                <div class="col-sm card day-plus" id="day-plus-4">
                                 Day+4
                                 </div>
-                                <div class="col-sm card" id="day-plus-5">
+                                <div class="col-sm card day-plus" id="day-plus-5">
                                 Day+5
                                 </div>
                             </div>
@@ -62,6 +62,7 @@
       </main>
 
       <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/open-weather/2.0.0/openweather.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
       <script src="assets/js/script.js"></script>
     </body>

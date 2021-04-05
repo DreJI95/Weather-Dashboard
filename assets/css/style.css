@@ -23,3 +23,9 @@ li
 {
     list-style: none;
 }
+
+.day-plus
+{
+    background-color: rgb(78, 115, 133);
+    color: white;
+}
