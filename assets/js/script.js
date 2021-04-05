@@ -1,3 +1,6 @@
+var apiKey = "ab5543a0004ddf7308f14dbe112934c4";
+var uvIndexVal;
+
 //pulls cities searched from local storage
 var loadWeatherHistory = function(){
     var weatherArray = JSON.parse(localStorage.getItem("weatherStoredArray"));
@@ -24,7 +27,8 @@ var saveWeatherHistory = function(city){
     }
     else
     {
-        weatherArray.push(city);
+        if (!weatherArray.includes(city))
+        {  weatherArray.push(city); }
     }
 
     localStorage.setItem("weatherStoredArray",JSON.stringify(weatherArray));
@@ -47,10 +51,10 @@ var addToSearchHistory = function (currentSelectedCity) {
 $(".search-city-button").click( function()
 {
     event.preventDefault;
-    
+
     var city = $(".city-name-input").val();
 
-    var weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&APPID=ab5543a0004ddf7308f14dbe112934c4";
+    var weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&APPID="+apiKey;
 
     fetch(weatherApiUrl).then(function(response)
     {
@@ -58,7 +62,25 @@ $(".search-city-button").click( function()
             response.json().then(function(data) {
                 $(".current-card").attr("hidden",false);
                 $(".forecast-card").attr("hidden",false);
-              showCurrentWeather(data);
+
+                var uvIndexApiUrl = "http://api.openweathermap.org/data/2.5/uvi?lat="+data.coord.lat+"&lon="+data.coord.lon+"&appid="+apiKey;
+            
+                fetch(uvIndexApiUrl).then(function(uvResponse)
+                {
+                    if (uvResponse.ok) {
+                        uvResponse.json().then(function(uvData) {
+                            uvIndexVal = (uvData.value);
+                            showCurrentWeather(data,uvIndexVal);
+                        });
+                      } else {
+                        alert("Error: \n" + uvResponse.statusText);
+                      }
+                }).catch(function(error) {
+            
+                    alert("Unable to connect to WeatherAPI"); 
+                
+                  });
+
               addToSearchHistory(city);
               showCurrentCityForecast(city);
             });
@@ -74,7 +96,7 @@ $(".search-city-button").click( function()
 
 var showCurrentCityForecast = function (city)
 {
-    var weatherApiUrl = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&cnt=5&APPID=ab5543a0004ddf7308f14dbe112934c4";
+    var weatherApiUrl = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&cnt=5&APPID="+apiKey;
 
     fetch(weatherApiUrl).then(function(response)
     {
@@ -94,14 +116,14 @@ var showCurrentCityForecast = function (city)
 
 
 
-var showCurrentWeather = function(weatherInfo) {
+var showCurrentWeather = function(weatherInfo,uvIndexVal) {
 
     var weatherIconUrl = "http://openweathermap.org/img/wn/"+weatherInfo.weather[0].icon+"@2x.png"
 
     var today = dayjs().format('(DD/MM/YYYY)');
     $(".current-city").text(weatherInfo.name+" "+today+" ");
     $(".current-city").append("<img src="+weatherIconUrl+" alt=\"weather icon\" class=weather-icon></img>")
-    $("#current-day").text("Temp: "+weatherInfo.main.temp+" C "+"Wind: "+weatherInfo.wind.speed+"MPH "+"Humidex: "+weatherInfo.main.humidity+"% ");
+    $("#current-day").text("Temp: "+weatherInfo.main.temp+ "°C "+"Wind: "+weatherInfo.wind.speed+"MPH "+"Humidex: "+weatherInfo.main.humidity+"% "+"UV Index: "+uvIndexVal);
 };
 
 var showForecastWeather = function(forecastInfo) {
