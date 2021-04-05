@@ -2,7 +2,7 @@
 #Andre Moseley
 
 **Description:** 
-
+This project lets a user see the weather conditions for cities using a Web API. It will then save their searched cities to their local storage. This project utilizes HTML, CSS and Javascript.
 
 **User Story**
 - AS A traveler
@@ -24,6 +24,12 @@
 
 **References:** 
 Weather API: https://openweathermap.org/api/one-call-api
+Weather API Forecast: https://openweathermap.org/forecast5
+Weahter API UV index: https://openweathermap.org/api/uvi
+Bootstrap Forms: https://getbootstrap.com/docs/5.0/forms/overview/
+Bootstrap Grid: https://getbootstrap.com/docs/5.0/layout/grid/
+Bootstrap Cards: https://getbootstrap.com/docs/5.0/components/card/
+Day.js format: https://day.js.org/docs/en/display/format
 
 **Live webpage link:** 
 

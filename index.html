@@ -20,17 +20,12 @@
             <div class="row">
 
                 <div class="col-sm">
-                        <div>
-                            <label for="citySearchInput" class="form-label search-for-city">Search for a City:</label>
-                            <input type="input" class="form-control" id="city-search-form" placeholder="Enter a city here" aria-describedby="citySearch">
-                            <button type="button" class="btn btn-secondary search-city-button">Search</button>
-                        </div>
+                        <label for="citySearchInput" class="form-label search-for-city">Search for a City:</label>
+                        <input type="input" class="form-control city-name-input" id="city-search-form" placeholder="Enter a city here" aria-describedby="citySearch">
+                        <button type="button" class="btn btn-secondary search-city-button">Search</button>
                         <br><br>
-                        <!-- append history buttons -->
-                        <div class="row search-history">
-                            <u>History</u>
-
-                        </div>
+                        <u>History:</u>
+                        <ul class="search-history"></ul>
                 </div>
 
                 <div class="col-sm">
@@ -65,6 +60,9 @@
 
         </div>
       </main>
-      <script src="./assets/js/script.js"></script>
+
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
+      <script src="assets/js/script.js"></script>
     </body>
 </html>
