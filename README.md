@@ -35,6 +35,9 @@ Day.js format: https://day.js.org/docs/en/display/format
 **Live webpage link:** https://dreji95.github.io/weather-dashboard/
 
 **Repository link:** https://github.com/DreJI95/weather-dashboard
+**Note: To run this application you will need to create a config.js as follows and use an API key from https://openweathermap.org/
+this is a temporary measure until a new feature is added to support API key generation**
+![image](https://user-images.githubusercontent.com/76451565/124686347-f4e95c80-dea0-11eb-80b9-33aaacef8fad.png)
 
 ![Weather-Dashboard-img1](https://user-images.githubusercontent.com/76451565/113534573-1cc5dd00-959f-11eb-8bed-fcb2b79c379b.PNG)
 ![Weather-Dashboard-img2](https://user-images.githubusercontent.com/76451565/113534579-1f283700-959f-11eb-9b85-c536c01e0626.PNG)
