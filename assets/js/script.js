@@ -1,4 +1,4 @@
-var apiKey = config.MY_KEY;
+var apiKey = APIKEY;
 var uvIndexVal;
 
 //pulls cities searched from local storage
