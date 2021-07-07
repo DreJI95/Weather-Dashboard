@@ -32,9 +32,9 @@ Bootstrap Grid: https://getbootstrap.com/docs/5.0/layout/grid/
 Bootstrap Cards: https://getbootstrap.com/docs/5.0/components/card/
 Day.js format: https://day.js.org/docs/en/display/format
 
-**Live webpage link:** https://dreji95.github.io/Weather-Dashboard/
+**Live webpage link:** https://dreji95.github.io/weather-dashboard/
 
-**Repository link:** https://github.com/DreJI95/Weather-Dashboard
+**Repository link:** https://github.com/DreJI95/weather-dashboard
 
 ![Weather-Dashboard-img1](https://user-images.githubusercontent.com/76451565/113534573-1cc5dd00-959f-11eb-8bed-fcb2b79c379b.PNG)
 ![Weather-Dashboard-img2](https://user-images.githubusercontent.com/76451565/113534579-1f283700-959f-11eb-9b85-c536c01e0626.PNG)
